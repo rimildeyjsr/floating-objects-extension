@@ -1,6 +1,8 @@
 .app {
-  text-align: center;
-  color: green;
-  width: 500px;
-  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 300px;
+  padding: 20px;
 }
