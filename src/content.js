@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom';
 import FloatingAnimation from './components/Floating-Animation/FloatingAnimation';
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  console.log(request.key);
-  injectAnimationComponent(request.key);
+  if (!document.getElementById('floating-animation')) {
+    const newDiv = document.createElement("div");
+    newDiv.setAttribute("id", "floating-animation");
+    document.body.appendChild(newDiv);
+  }
+  renderAnimation(request.key);
 });
 
-function injectAnimationComponent(key) {
-  console.log('function ' + key);
-  const newDiv = document.createElement("div");
-  newDiv.setAttribute("id", "floating-animation");
-  document.body.appendChild(newDiv);
-  ReactDOM.render(<FloatingAnimation buttonElement={key}/>, newDiv);
+function renderAnimation(key) {
+  let div = document.getElementById('floating-animation');
+  ReactDOM.render(<FloatingAnimation buttonElement={key}/>, div);
 }
 
