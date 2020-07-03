@@ -6,7 +6,7 @@ import ImageButton from "./components/Image-Button/ImageButton";
 
 function App() {
   function handleClick(key) {
-    console.log(key);
+    console.log("here " + key);
     chrome.tabs.query({
       active: true,
       currentWindow: true

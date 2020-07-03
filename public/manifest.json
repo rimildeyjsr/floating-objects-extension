@@ -8,17 +8,19 @@
     "default_icon": "logo192.png",
     "default_popup": "index.html"
   },
-  "content_scripts": {
-    "matches": [
-      "<all_urls>"
-    ],
-    "js": "src/contentScript.js"
-  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["/static/js/content.js"]
+    }
+  ],
   "content_security_policy": "script-src 'self' 'sha256-nYQr6POY86a+xHb0pc6ZntKZpcBIWgHLe118R7+oWkQ='; object-src 'self'",
   "web_accessible_resources": [
     "src/images/*"
   ],
   "permissions": [
-    "tabs"
+    "tabs",
+    "activeTab",
+    "<all_urls>"
   ]
 }
